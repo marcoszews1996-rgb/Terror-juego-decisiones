@@ -1,0 +1,6 @@
+{
+  "name": "NO CONTESTES",
+  "description": "Aventura interactiva de terror psicológico y misterio en pixel art.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
