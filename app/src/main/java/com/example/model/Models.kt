@@ -137,8 +137,18 @@ data class Ending(
     val quote: String,
     val newspaperClippingResId: Int? = null,
     val historicalCaseTitle: String? = null,
-    val historicalFactSnippet: String? = null
-)
+    val historicalFactSnippet: String? = null,
+    val cinematicMovieEpilogue: String? = null
+) {
+    val fullCinematicEpilogue: String
+        get() = cinematicMovieEpilogue ?: com.example.story.CinematicEndingsData.getEpilogue(id, storyId)
+
+    val vhsImageResId: Int
+        get() = com.example.story.CinematicEndingsData.getVhsEndingImageRes(id, storyId)
+
+    val vhsTimestamp: String
+        get() = com.example.story.CinematicEndingsData.getVhsTimestamp(storyId)
+}
 
 // Phone app data structures
 data class ChatMessage(

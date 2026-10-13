@@ -228,6 +228,43 @@ fun EndingsScreen(
                                         }
                                     }
                                 }
+
+                                // Registro Perturbador en Cinta VHS y Explicación del Final
+                                val movieEpilogue = ending.fullCinematicEpilogue
+                                if (movieEpilogue.isNotBlank()) {
+                                    Spacer(modifier = Modifier.height(8.dp))
+                                    Column(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .background(Color(0xFF0F0C0A), RoundedCornerShape(2.dp))
+                                            .border(1.dp, Color(0xFF661111), RoundedCornerShape(2.dp))
+                                            .padding(8.dp)
+                                    ) {
+                                        Text(
+                                            text = "📼 REGISTRO VHS // EVIDENCIA FINAL",
+                                            color = Color(0xFFFF4D4D),
+                                            fontSize = 9.sp,
+                                            fontWeight = FontWeight.Bold,
+                                            fontFamily = FontFamily.Monospace,
+                                            modifier = Modifier.padding(bottom = 6.dp)
+                                        )
+
+                                        com.example.ui.components.VHSEndingFrame(
+                                            imageResId = ending.vhsImageResId,
+                                            timestampText = ending.vhsTimestamp
+                                        )
+
+                                        Spacer(modifier = Modifier.height(8.dp))
+
+                                        Text(
+                                            text = movieEpilogue,
+                                            color = Color(0xFFD6D0C7),
+                                            fontSize = 9.sp,
+                                            lineHeight = 13.sp,
+                                            fontFamily = FontFamily.Monospace
+                                        )
+                                    }
+                                }
                             }
                         }
                     }

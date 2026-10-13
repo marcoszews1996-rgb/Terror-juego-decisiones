@@ -404,6 +404,47 @@ fun GameScreen(
                             }
                         }
 
+                        // Imagen Perturbadora Estilo VHS y Explicación del Final
+                        val cinematicText = activeEnding.fullCinematicEpilogue
+                        if (cinematicText.isNotBlank()) {
+                            Spacer(modifier = Modifier.height(8.dp))
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .background(Color(0xFF0C0908), RoundedCornerShape(4.dp))
+                                    .border(1.dp, BloodRed.copy(alpha = 0.85f), RoundedCornerShape(4.dp))
+                                    .padding(10.dp)
+                            ) {
+                                Text(
+                                    text = "📼 REGISTRO VHS // EVIDENCIA FINAL",
+                                    color = BloodRed,
+                                    fontSize = 11.sp,
+                                    fontWeight = FontWeight.Bold,
+                                    fontFamily = FontFamily.Monospace,
+                                    modifier = Modifier.padding(bottom = 6.dp)
+                                )
+
+                                // Imagen perturbadora acorde a la historia con marco analógico VHS
+                                com.example.ui.components.VHSEndingFrame(
+                                    imageResId = activeEnding.vhsImageResId,
+                                    timestampText = activeEnding.vhsTimestamp
+                                )
+
+                                Spacer(modifier = Modifier.height(10.dp))
+
+                                Text(
+                                    text = cinematicText,
+                                    color = Color(0xFFDDD7CF),
+                                    fontSize = 11.sp,
+                                    lineHeight = 16.sp,
+                                    fontFamily = FontFamily.Monospace,
+                                    textAlign = TextAlign.Start
+                                )
+                            }
+                        }
+
+                        Spacer(modifier = Modifier.height(8.dp))
+
                         RetroButton(
                             text = "VOLVER A JUGAR ESTA HISTORIA",
                             onClick = onRestartStory,
